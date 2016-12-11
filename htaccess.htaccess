@@ -1,0 +1,12 @@
+RewriteEngine on
+RewriteBase /cartago/
+Options +FollowSymLinks
+ 
+# añadir www
+RewriteCond %{HTTP_HOST} ^mihojadevida.com [NC]
+RewriteRule (.*) http://www.mihojadevida.com/$1 [L,R=301]
+ 
+# añadir slash
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule (.*) http://www.mihojadevida.com/$1/ [L,R=301]
